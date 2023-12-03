@@ -40,7 +40,34 @@ def speakNow():
             setVoice()
 
 def saveNow():
-    pass
+    text=textArea.get(1.0,END)
+    gender = gender_select.get()
+    speed = speed_select.get()
+    voices = engine.getProperty('voices')
+
+    def setVoice():
+        if(gender=="Male"):
+            engine.setProperty('voice',voices[0].id)
+            path = filedialog.askdirectory()
+            os.chdir(path)
+            engine.save_to_file(text,'text.mp3')
+            engine.runAndWait()
+        else:
+            engine.setProperty('voice',voices[1].id)
+            path = filedialog.askdirectory()
+            os.chdir(path)
+            engine.save_to_file(text,'text.mp3')
+            engine.runAndWait()
+    if(text):
+        if(speed=="Fast"):
+            engine.setProperty('rate',250)
+            setVoice()
+        elif(speed=="Normal"):
+            engine.setProperty('rate',150)
+            setVoice()
+        else:
+            engine.setProperty('rate',60)
+            setVoice()
 
 # Icon
 img = PhotoImage(file="WindowLogo.png")
