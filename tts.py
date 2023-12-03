@@ -31,13 +31,12 @@ def speakNow():
     if(text):
         if(speed=="Fast"):
             engine.setProperty('rate',250)
-            setVoice()
         elif(speed=="Normal"):
             engine.setProperty('rate',150)
-            setVoice()
         else:
             engine.setProperty('rate',60)
-            setVoice()
+        
+        setVoice()
 
 def saveNow():
     text=textArea.get(1.0,END)
@@ -61,13 +60,12 @@ def saveNow():
     if(text):
         if(speed=="Fast"):
             engine.setProperty('rate',250)
-            setVoice()
         elif(speed=="Normal"):
             engine.setProperty('rate',150)
-            setVoice()
         else:
             engine.setProperty('rate',60)
-            setVoice()
+        
+        setVoice()
 
 # Icon
 img = PhotoImage(file="WindowLogo.png")
